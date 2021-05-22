@@ -1,0 +1,27 @@
+.banner-container {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  .img-contanier {
+    width: 100vw;
+    height: 50vw;
+  }
+  .content-wrap {
+    position: absolute;
+    top: 45%;
+
+    h1 {
+      font-size: 5rem;
+      font-weight: 700px;
+      letter-spacing: 0.02em;
+      line-height: 62px;
+    }
+    p {
+      color: #222222;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 22px;
+    }
+  }
+}
