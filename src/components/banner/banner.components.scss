@@ -4,17 +4,19 @@
   z-index: 0;
   .img-contanier {
     width: 100vw;
-    height: 50vw;
+    height: 62vw;
   }
   .content-wrap {
     position: absolute;
     top: 45%;
+    margin: 1rem 6rem;
 
     h1 {
+      width: 50%;
       font-size: 5rem;
-      font-weight: 700px;
+      font-weight: bold;
       letter-spacing: 0.02em;
-      line-height: 62px;
+      line-height: 1;
     }
     p {
       color: #222222;

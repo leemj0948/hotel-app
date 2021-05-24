@@ -8,7 +8,7 @@ import Main from './pages/Main/Main';
 const Routes = () => {
   return (
     <Router>
-      {/* <Header /> */}
+      <Header />
       <Switch>
         <Route exact path="/map" component={MapPage} />
         <Route exact path="/" component={Main} />
