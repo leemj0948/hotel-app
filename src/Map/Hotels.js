@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import Fliter from './Component/Filter';
 import calendar from '../assets/calendar.svg';
 import HotelInfo from './Component/HotelInfo';
+import MapList from '../assets/data/maplist';
 
 const Hotels = props => {
+  console.log(MapList);
   return (
     <Backgorund>
       <OptionInfo>
@@ -22,7 +24,10 @@ const Hotels = props => {
         </Info>
       </SmallInfo>
       <InfoSection>
-        <HotelInfo />
+        {MapList.map(elm => {
+          console.log(elm);
+          return <HotelInfo data={elm} />;
+        })}
       </InfoSection>
     </Backgorund>
   );
@@ -36,7 +41,10 @@ const filterName = [
 ];
 
 const Backgorund = styled.div`
-  width: 100%;
+  overflow-y: scroll;
+  width: 93%;
+  height: 500px;
+  padding: 20px 30px;
 `;
 const OptionInfo = styled.h1`
   color: inherit;

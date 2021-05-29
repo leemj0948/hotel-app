@@ -25,8 +25,9 @@ const Background = styled.div`
 
 const Mymaps = styled.span`
   position: absolute;
+  top: -20vw;
   right: 10px;
-  width: 40vw;
+  width: 50vw;
   height: 600px;
 `;
 
