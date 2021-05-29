@@ -42,13 +42,20 @@ const Header = () => {
             <div className="subtitle">인원</div>
             <input type="text" className="search" placeholder="게스트추가" />
           </div>
+          <div>
+            <div></div>
+          </div>
         </div>
       </div>
       <div className="option-container">
-        <div>호스트되기</div>
+        <div className="hostbtn">호스트되기</div>
         <button className="button-wrap">
+          {/* <div className="icons"> */}
           <FaBars className="button-icons" />
+          {/* </div> */}
+          {/* <div className="icons"> */}
           <IoPersonCircle className="button-icons" />
+          {/* </div> */}
         </button>
       </div>
     </div>

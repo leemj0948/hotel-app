@@ -11,10 +11,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans Condensed', sans-serif;
   
   }
-body{
-  padding: 20px 60px;
 
-}
 
   input {
     border-style: none;
