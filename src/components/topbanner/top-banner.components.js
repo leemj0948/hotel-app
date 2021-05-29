@@ -1,7 +1,7 @@
 import React from 'react';
 import care from '../../assets/carebnb_bg.jpg';
-import './banner.components.scss';
-const Banner = () => {
+import './top-banner.components.scss';
+const TopBanner = () => {
   return (
     <div className="banner-container ">
       <div
@@ -17,4 +17,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default TopBanner;
