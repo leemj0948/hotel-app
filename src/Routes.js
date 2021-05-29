@@ -7,6 +7,10 @@ import Main from './pages/Main/Main';
 import Login from './Login/Login';
 
 const Routes = () => {
+  // function scrollE() {
+  //   let currentScrollPos = window.pageYOffset;
+  //   console.log(currentScrollPos);
+  // }
   return (
     <Router>
       <Header />
@@ -15,6 +19,7 @@ const Routes = () => {
         <Route exact path="/" component={Main} />
         <Route exact path="/login" component={Login} />
       </Switch>
+      <Footer />
     </Router>
   );
 };

@@ -1,0 +1,4 @@
+export const HeaderType = {
+  BIG_SIZE_HEADER: 'BIG_SIZE_HEADER',
+  USER_INFO_DROP_DOWN: 'USER_INFO_DROP_DOWN',
+};

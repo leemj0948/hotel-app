@@ -14,6 +14,7 @@ export const Img = styled.img`
   border-radius: 10px;
   margin: 0 auto;
   height: 402px;
+  object-fit: cover;
 `;
 
 export const TextWrap = styled.div`
