@@ -37,30 +37,46 @@ const Login = () => {
 };
 const Form = styled.div`
   width: 100%;
+  height: 80vw;
 `;
 const Background = styled.div`
   position: relative;
-
   width: 100%;
+  height: 100%;
   background-color: #484848;
 `;
 const LoginModal = styled.div`
   position: absolute;
+  top: 20vw;
+  left: 50vw;
   width: 40%;
   height: 80%;
+  border-radius: 3%;
+  background-color: white;
+  opacity: 35%;
 `;
 const Header = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
+  height: 8%;
 `;
 const CloseBtn = styled.div`
   position: absolute;
   left: 1vw;
 `;
-const Body = styled.div``;
-const BodyHeader = styled.div``;
+const Body = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 3vw;
+  height: 92%;
+`;
+const BodyHeader = styled.div`
+  font-size: 2vw;
+`;
 const Title = styled.h1``;
 const PhoneInfo = styled.div``;
 const Country = styled.input``;
