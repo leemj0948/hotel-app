@@ -11,7 +11,6 @@ import {
 const Login = () => {
   return (
     <Form>
-      <Background />
       <LoginModal>
         <Header>
           <CloseBtn>
@@ -62,25 +61,25 @@ const Login = () => {
           </OR>
           <Btn>
             <Logo>
-              <IoLogoFacebook style={{ color: 'blue' }} />
+              <IoLogoFacebook style={{ color: 'blue', fontSize: '1.5vw' }} />
             </Logo>
             페이스북으로 로그인하기
           </Btn>
           <Btn>
             <Logo>
-              <IoLogoGoogle />
+              <IoLogoGoogle style={{ fontSize: '1.5vw' }} />
             </Logo>
             구글로 로그인하기
           </Btn>
           <Btn>
             <Logo>
-              <IoLogoApple />
+              <IoLogoApple style={{ fontSize: '1.5vw' }} />
             </Logo>
             Apple계정으로 로그인하기
           </Btn>
           <Btn>
             <Logo>
-              <IoMailOutline />
+              <IoMailOutline style={{ fontSize: '1.5vw' }} />
             </Logo>
             이메일로 로그인하기
           </Btn>
@@ -90,22 +89,21 @@ const Login = () => {
   );
 };
 const Form = styled.div`
-  width: 100%;
-  height: 80vw;
-`;
-const Background = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #484848;
-`;
-const LoginModal = styled.div`
-  position: absolute;
-  width: 50%;
-  height: 80%;
-  left: 35%;
-  top: 35%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
   z-index: 2000;
+`;
+
+const LoginModal = styled.div`
+  position: fixed;
+  width: 40%;
+  left: 30%;
+  top: 0;
+  z-index: 2001;
   background-color: white;
   border-radius: 1.5vw;
 `;
@@ -115,7 +113,7 @@ const Header = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 900;
-  height: 8vw;
+  height: 5vw;
   border-bottom: 0.1px solid #484848;
 `;
 const CloseBtn = styled.div`
@@ -128,6 +126,8 @@ const Body = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 1vw 3vw;
+  overflow: auto;
+  /* overflow-y: auto; */
 `;
 const BodyHeader = styled.div`
   margin-top: 1vw;
@@ -143,7 +143,8 @@ const PhoneInfo = styled.div`
 const CountryPack = styled.div`
   padding: 0.5vw;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid #484848;
+  border-radius: 4px;
   font-size: 0.2vw;
   color: #484848;
 `;
@@ -157,8 +158,9 @@ const PhonePack = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 3vw;
-  border: 1px solid black;
+  height: 4vw;
+  border: 1px solid #484848;
+  border-radius: 4px;
 `;
 const Placeholder = styled.div`
   position: relative;
@@ -186,7 +188,7 @@ const Info = styled.p`
 `;
 const Btn = styled.div`
   margin: ${props => props.margin || '1vw 0'};
-  padding: 1vw 0;
+  padding: 1.5vw 0;
   position: relative;
   width: 100%;
   height: 4vw;
@@ -216,6 +218,7 @@ const Text = styled.span`
 const Logo = styled.span`
   position: absolute;
   left: 2vw;
+  top: 1vw;
 `;
 
 export default Login;
