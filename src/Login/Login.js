@@ -41,6 +41,10 @@ const Form = styled.div`
 `;
 const Background = styled.div`
   position: relative;
+<<<<<<< HEAD
+=======
+  height: 100vw;
+>>>>>>> b959fa0... add:login 수정중
   width: 100%;
   height: 100%;
   background-color: #484848;
@@ -51,16 +55,27 @@ const LoginModal = styled.div`
   left: 50vw;
   width: 40%;
   height: 80%;
+<<<<<<< HEAD
   border-radius: 3%;
   background-color: white;
   opacity: 35%;
+=======
+  left: 45%;
+  top: 50%;
+  background-color: white;
+  border-radius: 1.5vw;
+>>>>>>> b959fa0... add:login 수정중
 `;
 const Header = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   height: 8%;
+=======
+  height: 3vw;
+>>>>>>> b959fa0... add:login 수정중
 `;
 const CloseBtn = styled.div`
   position: absolute;
