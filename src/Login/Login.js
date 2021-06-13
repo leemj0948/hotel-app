@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useState } from 'react';
 import {
   IoCloseOutline,
   IoLogoFacebook,
@@ -9,6 +10,7 @@ import {
 } from 'react-icons/io5';
 
 const Login = () => {
+  const [firstNumber, setFirstNumber] = useState('');
   return (
     <Form>
       <LoginModal>
@@ -23,13 +25,13 @@ const Login = () => {
           <PhoneInfo>
             <CountryPack>
               국가/지역
-              <Country>
-                <option value="korea" selected>
+              <Country name="Number">
+                <option value="+82" selected>
                   한국 (+82)
                 </option>
-                <option>프랑스 (+33)</option>
-                <option>중국 (+86)</option>
-                <option>스페인 (+34)</option>
+                <option value="+33">프랑스 (+33)</option>
+                <option value="+86">중국 (+86)</option>
+                <option value="+34">스페인 (+34)</option>
               </Country>
             </CountryPack>
             <PhonePack>
