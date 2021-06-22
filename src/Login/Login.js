@@ -11,6 +11,15 @@ import {
 
 const Login = () => {
   const [firstNumber, setFirstNumber] = useState('');
+  const [switchs, setSwitchs] = useState(false);
+  const clickHandler = () => {
+    let getNumber = document.getElementById('number');
+    let Numbers = getNumber.options[getNumber.selectedIndex].value;
+    let getFocus = document.getElementById('phoneNumber');
+    getFocus.focus();
+    setFirstNumber(Numbers);
+    setSwitchs(true);
+  };
   return (
     <Form>
       <LoginModal>
@@ -25,7 +34,7 @@ const Login = () => {
           <PhoneInfo>
             <CountryPack>
               국가/지역
-              <Country name="Number">
+              <Country name="Number" id="number">
                 <option value="+82" selected>
                   한국 (+82)
                 </option>
@@ -34,17 +43,21 @@ const Login = () => {
                 <option value="+34">스페인 (+34)</option>
               </Country>
             </CountryPack>
-            <PhonePack>
+            <PhonePack
+              onClick={() => {
+                clickHandler();
+              }}
+            >
               <Placeholder>
-                <p>전화번호</p>
+                <PhName switchs={switchs}>전화번호</PhName>
               </Placeholder>
               <InputNumber>
-                <FirstNumber></FirstNumber>
-                <Phone type="number" placeholder="전화번호"></Phone>
+                <FirstNumber>{switchs && firstNumber}</FirstNumber>
+                <Phone type="tel" id="phoneNumber"></Phone>
               </InputNumber>
             </PhonePack>
           </PhoneInfo>
-          <Info>
+          <Info onClick={() => setSwitchs(false)}>
             전화나 문자로 전화번호를 확인하겠습니다. 일반 문자 메시지 요금 및
             데이터 요금이 부과됩니다.
           </Info>
@@ -96,18 +109,20 @@ const Form = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+
   background: rgba(0, 0, 0, 0.6);
   z-index: 2000;
 `;
-
 const LoginModal = styled.div`
   position: fixed;
   width: 40%;
+  height: 42vw;
   left: 30%;
-  top: 0;
+  top: 10%;
   z-index: 2001;
   background-color: white;
   border-radius: 1.5vw;
+  overflow: hidden;
 `;
 const Header = styled.div`
   display: flex;
@@ -127,9 +142,9 @@ const Body = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1vw 3vw;
-  overflow: auto;
-  /* overflow-y: auto; */
+  padding: 10vw 3vw 1vw;
+  height: 44vw;
+  overflow: scroll;
 `;
 const BodyHeader = styled.div`
   margin-top: 1vw;
@@ -149,6 +164,7 @@ const CountryPack = styled.div`
   border-radius: 4px;
   font-size: 0.2vw;
   color: #484848;
+  cursor: pointer;
 `;
 const Country = styled.select`
   width: 100%;
@@ -166,22 +182,39 @@ const PhonePack = styled.div`
 `;
 const Placeholder = styled.div`
   position: relative;
-  height: 100%;
-  p {
-    position: absolute;
-    left: 1vw;
-    top: 1vw;
-    color: #484848;
-  }
+  height: 55%;
+`;
+const PhName = styled.p`
+  position: absolute;
+  width: 11vw;
+  height: 2.5vw;
+  font-size: 1.6vw;
+  left: 1vw;
+  top: 1vw;
+  color: #484848;
+  transform: ${props => props.switchs && `scale(70%) translate(-30%,-25%)`};
+  transition: all 0.5s;
+  z-index: 99;
 `;
 const InputNumber = styled.div`
   display: flex;
+  position: relative;
+  height: 100%;
 `;
 const FirstNumber = styled.span`
-  width: 20%;
+  position: absolute;
+  padding-left: 1vw;
+  top: 12px;
+  width: 12%;
+  font-size: 1.4vw;
 `;
 const Phone = styled.input`
-  width: 80%;
+  margin-left: 15%;
+  padding-top: 5px;
+  font-size: 1.4vw;
+  width: 83%;
+  outline: none;
+  cursor: auto;
 `;
 const Info = styled.p`
   margin: 0.9vw 0;
@@ -199,6 +232,7 @@ const Btn = styled.div`
   border-radius: 1vw;
   background-color: ${props => props.backColor || ''};
   text-align: center;
+  cursor: pointer;
 `;
 const OR = styled.div`
   margin: 1vw 0;
