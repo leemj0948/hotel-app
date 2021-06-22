@@ -53,7 +53,7 @@ const Login = () => {
               </Placeholder>
               <InputNumber>
                 <FirstNumber>{switchs && firstNumber}</FirstNumber>
-                <Phone type="number" id="phoneNumber"></Phone>
+                <Phone type="tel" id="phoneNumber"></Phone>
               </InputNumber>
             </PhonePack>
           </PhoneInfo>
@@ -109,18 +109,20 @@ const Form = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+
   background: rgba(0, 0, 0, 0.6);
   z-index: 2000;
 `;
-
 const LoginModal = styled.div`
   position: fixed;
   width: 40%;
+  height: 42vw;
   left: 30%;
-  top: 0;
+  top: 10%;
   z-index: 2001;
   background-color: white;
   border-radius: 1.5vw;
+  overflow: hidden;
 `;
 const Header = styled.div`
   display: flex;
@@ -140,9 +142,9 @@ const Body = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1vw 3vw;
-  overflow: auto;
-  /* overflow-y: auto; */
+  padding: 10vw 3vw 1vw;
+  height: 44vw;
+  overflow: scroll;
 `;
 const BodyHeader = styled.div`
   margin-top: 1vw;
@@ -162,6 +164,7 @@ const CountryPack = styled.div`
   border-radius: 4px;
   font-size: 0.2vw;
   color: #484848;
+  cursor: pointer;
 `;
 const Country = styled.select`
   width: 100%;
@@ -179,7 +182,7 @@ const PhonePack = styled.div`
 `;
 const Placeholder = styled.div`
   position: relative;
-  height: 100%;
+  height: 55%;
 `;
 const PhName = styled.p`
   position: absolute;
@@ -191,16 +194,27 @@ const PhName = styled.p`
   color: #484848;
   transform: ${props => props.switchs && `scale(70%) translate(-30%,-25%)`};
   transition: all 0.5s;
+  z-index: 99;
 `;
 const InputNumber = styled.div`
   display: flex;
+  position: relative;
+  height: 100%;
 `;
 const FirstNumber = styled.span`
+  position: absolute;
   padding-left: 1vw;
+  top: 12px;
   width: 12%;
+  font-size: 1.4vw;
 `;
 const Phone = styled.input`
-  width: 80%;
+  margin-left: 15%;
+  padding-top: 5px;
+  font-size: 1.4vw;
+  width: 83%;
+  outline: none;
+  cursor: auto;
 `;
 const Info = styled.p`
   margin: 0.9vw 0;
@@ -218,6 +232,7 @@ const Btn = styled.div`
   border-radius: 1vw;
   background-color: ${props => props.backColor || ''};
   text-align: center;
+  cursor: pointer;
 `;
 const OR = styled.div`
   margin: 1vw 0;
