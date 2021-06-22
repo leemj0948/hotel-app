@@ -11,6 +11,15 @@ import {
 
 const Login = () => {
   const [firstNumber, setFirstNumber] = useState('');
+  const [switchs, setSwitchs] = useState(false);
+  const clickHandler = () => {
+    let getNumber = document.getElementById('number');
+    let Numbers = getNumber.options[getNumber.selectedIndex].value;
+    let getFocus = document.getElementById('phoneNumber');
+    getFocus.focus();
+    setFirstNumber(Numbers);
+    setSwitchs(true);
+  };
   return (
     <Form>
       <LoginModal>
@@ -25,7 +34,7 @@ const Login = () => {
           <PhoneInfo>
             <CountryPack>
               국가/지역
-              <Country name="Number">
+              <Country name="Number" id="number">
                 <option value="+82" selected>
                   한국 (+82)
                 </option>
@@ -34,17 +43,21 @@ const Login = () => {
                 <option value="+34">스페인 (+34)</option>
               </Country>
             </CountryPack>
-            <PhonePack>
+            <PhonePack
+              onClick={() => {
+                clickHandler();
+              }}
+            >
               <Placeholder>
-                <p>전화번호</p>
+                <PhName switchs={switchs}>전화번호</PhName>
               </Placeholder>
               <InputNumber>
-                <FirstNumber></FirstNumber>
-                <Phone type="number" placeholder="전화번호"></Phone>
+                <FirstNumber>{switchs && firstNumber}</FirstNumber>
+                <Phone type="number" id="phoneNumber"></Phone>
               </InputNumber>
             </PhonePack>
           </PhoneInfo>
-          <Info>
+          <Info onClick={() => setSwitchs(false)}>
             전화나 문자로 전화번호를 확인하겠습니다. 일반 문자 메시지 요금 및
             데이터 요금이 부과됩니다.
           </Info>
@@ -167,18 +180,24 @@ const PhonePack = styled.div`
 const Placeholder = styled.div`
   position: relative;
   height: 100%;
-  p {
-    position: absolute;
-    left: 1vw;
-    top: 1vw;
-    color: #484848;
-  }
+`;
+const PhName = styled.p`
+  position: absolute;
+  width: 11vw;
+  height: 2.5vw;
+  font-size: 1.6vw;
+  left: 1vw;
+  top: 1vw;
+  color: #484848;
+  transform: ${props => props.switchs && `scale(70%) translate(-30%,-25%)`};
+  transition: all 0.5s;
 `;
 const InputNumber = styled.div`
   display: flex;
 `;
 const FirstNumber = styled.span`
-  width: 20%;
+  padding-left: 1vw;
+  width: 13%;
 `;
 const Phone = styled.input`
   width: 80%;
