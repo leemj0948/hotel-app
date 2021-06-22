@@ -197,7 +197,7 @@ const InputNumber = styled.div`
 `;
 const FirstNumber = styled.span`
   padding-left: 1vw;
-  width: 13%;
+  width: 12%;
 `;
 const Phone = styled.input`
   width: 80%;
