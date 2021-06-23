@@ -20,6 +20,14 @@ const Login = () => {
     setFirstNumber(Numbers);
     setSwitchs(true);
   };
+  const clickEventOff = () => {
+    let getId = document.getElementById('phoneNumber');
+    if (getId.value.length > 0) {
+      setSwitchs(true);
+    } else {
+      setSwitchs(false);
+    }
+  };
   return (
     <Form>
       <LoginModal>
@@ -57,7 +65,11 @@ const Login = () => {
               </InputNumber>
             </PhonePack>
           </PhoneInfo>
-          <Info onClick={() => setSwitchs(false)}>
+          <Info
+            onClick={() => {
+              clickEventOff();
+            }}
+          >
             전화나 문자로 전화번호를 확인하겠습니다. 일반 문자 메시지 요금 및
             데이터 요금이 부과됩니다.
           </Info>
@@ -160,9 +172,10 @@ const PhoneInfo = styled.div`
 const CountryPack = styled.div`
   padding: 0.5vw;
   width: 100%;
+  height: 4vw;
   border: 1px solid #484848;
   border-radius: 4px;
-  font-size: 0.2vw;
+  font-size: 0.9vw;
   color: #484848;
   cursor: pointer;
 `;
@@ -192,7 +205,7 @@ const PhName = styled.p`
   left: 1vw;
   top: 1vw;
   color: #484848;
-  transform: ${props => props.switchs && `scale(70%) translate(-30%,-25%)`};
+  transform: ${props => props.switchs && `scale(70%) translate(-30%,-40%)`};
   transition: all 0.5s;
   z-index: 99;
 `;
