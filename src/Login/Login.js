@@ -8,8 +8,11 @@ import {
   IoLogoGoogle,
   IoMailOutline,
 } from 'react-icons/io5';
+import { connect } from 'react-redux';
+import { modalHandler } from '../redux/header/header.action';
 
-const Login = () => {
+const { Kakao } = window;
+const Login = ({ onModal }) => {
   const [firstNumber, setFirstNumber] = useState('');
   const [switchs, setSwitchs] = useState(false);
   const clickHandler = () => {
@@ -28,11 +31,30 @@ const Login = () => {
       setSwitchs(false);
     }
   };
+  const kakaoLogin = () => {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+            console.log(response);
+            //토큰값 받고 history.push할것
+          },
+          fail: function (error) {
+            console.log(error);
+          },
+        });
+      },
+      fail: function (error) {
+        console.log(error);
+      },
+    });
+  };
   return (
     <Form>
       <LoginModal>
         <Header>
-          <CloseBtn>
+          <CloseBtn onClick={onModal}>
             <IoCloseOutline style={{ fontSize: '2.5vw' }} />
           </CloseBtn>
           <Title>로그인 또는 회원가입</Title>
@@ -86,11 +108,11 @@ const Login = () => {
             <Text>또는</Text>
             <Line />
           </OR>
-          <Btn>
+          <Btn onClick={() => kakaoLogin()}>
             <Logo>
               <IoLogoFacebook style={{ color: 'blue', fontSize: '1.5vw' }} />
             </Logo>
-            페이스북으로 로그인하기
+            카카오톡으로 로그인하기
           </Btn>
           <Btn>
             <Logo>
@@ -148,14 +170,15 @@ const Header = styled.div`
 const CloseBtn = styled.div`
   position: absolute;
   left: 2vw;
+  cursor: pointer;
 `;
 const Body = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10vw 3vw 1vw;
-  height: 44vw;
+  padding: 16vw 3vw 1vw;
+  height: 36vw;
   overflow: scroll;
 `;
 const BodyHeader = styled.div`
@@ -245,6 +268,7 @@ const Btn = styled.div`
   border-radius: 1vw;
   background-color: ${props => props.backColor || ''};
   text-align: center;
+  font-size: 1vw;
   cursor: pointer;
 `;
 const OR = styled.div`
@@ -269,5 +293,8 @@ const Logo = styled.span`
   left: 2vw;
   top: 1vw;
 `;
+const mapDispatchToProps = dispatch => ({
+  onModal: () => dispatch(modalHandler()),
+});
 
-export default Login;
+export default connect(null, mapDispatchToProps)(Login);

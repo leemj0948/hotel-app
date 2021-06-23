@@ -5,6 +5,7 @@ const INITAL_STATE = {
   mainPageHeader: true,
   bigHeader: true,
   UserInfoHidden: true,
+  modalhandle: false,
 };
 
 const headerReducer = (state = INITAL_STATE, action) => {
@@ -23,6 +24,12 @@ const headerReducer = (state = INITAL_STATE, action) => {
       return {
         ...state,
         UserInfoHidden: !state.UserInfoHidden,
+      };
+    case HeaderType.MODAL_HANDLE:
+      return {
+        ...state,
+        modalhandle: !state.modalhandle,
+        UserInfoHidden: true,
       };
     default:
       return state;
