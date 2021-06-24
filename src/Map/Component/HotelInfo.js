@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IoHeartOutline, IoHeartSharp } from 'react-icons/io5';
+import Imgslider from './Imgslider';
 
 const HotelInfo = ({ data }) => {
   const [isHeart, setIsHeart] = useState(true);
   const clickHeart = () => {
     setIsHeart(!isHeart);
-    console.log(isHeart);
   };
   const { address, fee, imgUrl, option1, option2, title } = data;
-  console.log(imgUrl);
   return (
     <>
       <Bar />
       <Form>
         <ImgSection>
-          <Img src={imgUrl[1]} />
+          <Imgslider img={imgUrl} />
         </ImgSection>
         <TextSection>
           <AddressInfo>{address} 의 집 전체 </AddressInfo>
@@ -54,11 +53,6 @@ const ImgSection = styled.span`
   margin: 0 1vw;
   width: 15vw;
   height: 100%;
-`;
-const Img = styled.img`
-  width: 15vw;
-  height: 100%;
-  border-radius: 10px;
 `;
 
 const TextSection = styled.span`
