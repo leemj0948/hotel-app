@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const Imgslider = props => {
   const { img } = props;
@@ -9,17 +10,26 @@ const Imgslider = props => {
   };
   return (
     <Frame>
-      {/* 화살표  */}
-      <ArrowL
-        onClick={() => {
-          slideHandle(15);
-        }}
-      />
-      <ArrowR
-        onClick={() => {
-          slideHandle(-15);
-        }}
-      />
+      {!(moveX === 0) && (
+        <Arrow left="1vw">
+          <MdKeyboardArrowLeft
+            style={{ width: '120%', height: '113%' }}
+            onClick={() => {
+              slideHandle(15);
+            }}
+          />
+        </Arrow>
+      )}
+      {!(moveX === -45) && (
+        <Arrow right="1vw">
+          <MdKeyboardArrowRight
+            style={{ width: '120%', height: '113%' }}
+            onClick={() => {
+              slideHandle(-15);
+            }}
+          />
+        </Arrow>
+      )}
       <Images style={{ transform: `translateX(${moveX}vw)` }}>
         {Boolean(img.length) &&
           img.map((elm, index) => {
@@ -32,30 +42,28 @@ const Imgslider = props => {
 
 const Frame = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 const Images = styled.div`
   display: flex;
   width: auto;
-  overflow: hidden;
+  height: 15vw;
+  transition: 0.5s ease-out;
 `;
 const Img = styled.img`
+  width: 15vw;
   height: 15vw;
 `;
-const ArrowL = styled.div`
+
+const Arrow = styled.div`
   position: absolute;
   top: 40%;
-  width: 30px;
-  height: 30px;
-  background-color: red;
-  z-index: 99;
-`;
-const ArrowR = styled.div`
-  position: absolute;
-  top: 40%;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  background-color: red;
+  left: ${props => props.left || ''};
+  right: ${props => props.right || ''};
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background-color: lightgrey;
   z-index: 99;
 `;
 
