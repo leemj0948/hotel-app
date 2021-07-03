@@ -43,7 +43,7 @@ const filterName = [
 const Backgorund = styled.div`
   overflow-y: scroll;
   width: 93%;
-  height: 500px;
+  height: 84vh;
   padding: 20px 30px;
 `;
 const OptionInfo = styled.h1`
