@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: black;
   }
   button {
     border-style: none;

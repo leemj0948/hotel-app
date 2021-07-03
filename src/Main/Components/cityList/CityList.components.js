@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import LANDMARK_DATA from '../../../public/data/landmark';
-import LANDMARK_DATA from '../../assets/data/landmark';
+// import LANDMARK_DATA from '../../../assets/data/landmark';
 import './CityList.style.scss';
 class CityList extends React.Component {
   constructor() {
