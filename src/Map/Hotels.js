@@ -23,7 +23,7 @@ const Hotels = props => {
           26%가 이미 예약되었습니다.
         </Info>
       </SmallInfo>
-      <InfoSection>
+      <InfoSection to="/room">
         {MapList.map(elm => {
           console.log(elm);
           return <HotelInfo data={elm} />;

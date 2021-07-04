@@ -41,6 +41,7 @@ import {
 } from './header.styles';
 import { headerSize } from '../../../redux/header/header.action';
 const Header = ({ hidden, headerSize, bigHeader, UserInfoHidden }) => {
+  const [listingPage, setListingPage] = useState(true);
   useEffect(() => {
     window.addEventListener(
       'scroll',
@@ -77,7 +78,12 @@ const Header = ({ hidden, headerSize, bigHeader, UserInfoHidden }) => {
         <SearchContainer sizeValue={bigHeader}>
           <SearchBox sizeValue={bigHeader}>
             <Subtitle>위치</Subtitle>
-            <Search where="어디로가세요" />
+            <Search
+              where="어디로가세요"
+              onChange={e => {
+                localStorage.setItem('location', e.target.value);
+              }}
+            />
           </SearchBox>
           {bigHeader ? <Vline></Vline> : null}
 
@@ -95,6 +101,7 @@ const Header = ({ hidden, headerSize, bigHeader, UserInfoHidden }) => {
           {bigHeader ? <Vline></Vline> : null}
 
           {bigHeader ? (
+            //큰화면
             <SearchBox sizeValue={bigHeader}>
               <Icon flex="flex" row="row">
                 <Option>
@@ -104,15 +111,26 @@ const Header = ({ hidden, headerSize, bigHeader, UserInfoHidden }) => {
 
                 <SearchIcon value={hidden}>
                   <LinkBox to="/map">
-                    <MagnificationIcon />
+                    <MagnificationIcon
+                      onClick={() => {
+                        console.log(listingPage);
+                        setListingPage(false);
+                      }}
+                    />
                     {hidden ? null : <HiddenSpan>검색</HiddenSpan>}
                   </LinkBox>
                 </SearchIcon>
               </Icon>
             </SearchBox>
           ) : (
+            //스크롤 내리는 경우
             <SmallSearchBox animation={bigHeader}>
-              <Subtitle padding={'55%'}>검색 시작하기</Subtitle>
+              <Subtitle padding={'55%'}>
+                {' '}
+                {listingPage
+                  ? '검색 시작하기'
+                  : localStorage.getItem('location')}
+              </Subtitle>
               <SearchIcon value={hidden}>
                 <LinkBox to="/map">
                   <MagnificationIcon />

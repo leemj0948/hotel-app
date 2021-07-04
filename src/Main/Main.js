@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toggleUserDropDown } from '../redux/header/header.action';
 import BannerBox from './Components/banner/banner-box.components';
 import CityList from './Components/cityList/CityList.components';
 import Experience from './Components/experience/Experience.components';
@@ -7,7 +9,7 @@ import TopBanner from './Components/topbanner/top-banner.components';
 
 import './Main.scss';
 
-const Main = () => {
+const Main = ({ toggleUserDropDown }) => {
   return (
     <div className="main-container">
       <TopBanner />
@@ -28,4 +30,7 @@ const Main = () => {
   );
 };
 
-export default Main;
+const mapDispatchToProps = dispatch => ({
+  toggleUserDropDown: () => dispatch(toggleUserDropDown()),
+});
+export default connect(null, mapDispatchToProps)(Main);

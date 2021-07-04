@@ -8,6 +8,7 @@ import Main from './Main/Main';
 // import Main from './pages/Main/Main';
 import Login from './Login/Login';
 import Footer from './Main/Components/footer/Footer';
+import Room from './Room/Components/Room';
 
 const Routes = () => {
   // function scrollE() {
@@ -21,6 +22,7 @@ const Routes = () => {
         <Route exact path="/map" component={MapMainPage} />
         <Route exact path="/" component={Main} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/room" component={Room} />
       </Switch>
       <Footer />
     </Router>
