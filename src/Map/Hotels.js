@@ -4,7 +4,7 @@ import Fliter from './Component/Filter';
 import calendar from '../assets/calendar.svg';
 import HotelInfo from './Component/HotelInfo';
 import MapList from '../assets/data/maplist';
-
+import { Link } from 'react-router-dom';
 const Hotels = props => {
   console.log(MapList);
   return (
@@ -25,8 +25,12 @@ const Hotels = props => {
       </SmallInfo>
       <InfoSection to="/room">
         {MapList.map(elm => {
-          console.log(elm);
-          return <HotelInfo data={elm} />;
+          console.log(elm.id);
+          return (
+            <Link to={`/room/${elm.id}`}>
+              <HotelInfo data={elm} />;
+            </Link>
+          );
         })}
       </InfoSection>
     </Backgorund>

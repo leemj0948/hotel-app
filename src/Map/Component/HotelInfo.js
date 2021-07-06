@@ -9,6 +9,7 @@ const HotelInfo = ({ data }) => {
     setIsHeart(!isHeart);
   };
   const { id, address, fee, imgUrl, option1, option2, title } = data;
+  console.log(data);
   return (
     <>
       <Bar />
