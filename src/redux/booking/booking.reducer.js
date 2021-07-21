@@ -1,6 +1,6 @@
 import { BOOKING_TYPE_DATA } from './booking.data';
 import { BookingActionType } from './booking.types';
-import { minusAndRemoveGuests } from './booking.utils';
+import { calculateTotal, minusAndRemoveGuests } from './booking.utils';
 // import { toalGuests } from './booking.utils';
 const INITIAL_STATE = {
   collection: BOOKING_TYPE_DATA,
@@ -8,14 +8,44 @@ const INITIAL_STATE = {
   guest: 0,
   adult: 0,
   infant: 0,
+  startDay: null,
+  endDay: null,
+  stayDate: 0,
+  totalprice: 0,
+  eachHotelValues: 0,
 };
 const bookingReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case BookingActionType.HOTEL_VALUE:
+      return {
+        ...state,
+        eachHotelValues: action.payload,
+      };
+    case BookingActionType.TOTAL_PRICE:
+      return {
+        ...state,
+        totalprice: state.stayDate * state.eachHotelValues.fee,
+        // totalprice: calculateTotal(state.stayDate, state.eachHotelValues),
+      };
+    case BookingActionType.BOOKING_CALENDER_DATE:
+      return {
+        ...state,
+        startDay: action.payload
+          ? action.payload.start
+          : state.booking.startDay,
+        endDay: action.payload ? action.payload.end : state.booking.endDay,
+        stayDate: Math.floor(action.payload.stayDate),
+      };
     case BookingActionType.TOGGLE_PEOPLE_MODAL_HIDDEN:
       return {
         ...state,
         hidden: !state.hidden,
       };
+    // case BookingActionType.TOGGLE_PEOPLE_MODAL_EXIT:
+    //   return {
+    //     ...state,
+    //     hidden: true,
+    //   };
     case BookingActionType.PLUS_ADULT_GUEST:
       return {
         ...state,

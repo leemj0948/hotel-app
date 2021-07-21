@@ -9,6 +9,7 @@ import Main from './Main/Main';
 import Login from './Login/Login';
 import Footer from './Main/Components/footer/Footer';
 import Room from './Room/Components/Room';
+import PaymentDetail from './payment/PaymentDetail';
 
 const Routes = () => {
   // function scrollE() {
@@ -23,6 +24,7 @@ const Routes = () => {
         <Route exact path="/" component={Main} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/room/:id" component={Room} />
+        <Route exact path="/paymentDetail" component={PaymentDetail} />
       </Switch>
       <Footer />
     </Router>

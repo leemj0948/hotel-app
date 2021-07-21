@@ -19,6 +19,24 @@ export const HeaderContainer = styled.div`
   width: 100%;
   box-shadow: ${props => props.shadowStyle};
 `;
+
+export const HeaderContainerOthers = styled.div`
+  background: white;
+  top: 0px;
+  margin: 0;
+  position: relative;
+  z-index: 5;
+  background-color: ${props => props.background};
+  font-family: 'Open Sans Condensed';
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px 40px;
+  top: ${props => props.topPosition};
+  position: ${props => props.positionStyle};
+  width: 100%;
+  box-shadow: ${props => props.shadowStyle};
+`;
 export const LogoContainer = styled(Link)`
   display: flex;
   width: 15%;
@@ -90,6 +108,16 @@ const getNavStyles = props => {
 };
 export const SearchContainer = styled.div`
   ${getNavStyles}
+`;
+
+export const CalenderWrap = styled.div`
+  height: 50%;
+  padding: 0px;
+  margin: 0;
+`;
+export const CheckInOut = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 export const SearchBox = styled.div`
   background-color: white;

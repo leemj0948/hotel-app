@@ -1,5 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Calender from '../../Main/Components/Calander.components/Calander';
+// import Calendar from '../../Main/Components/Calander.components/Calander';
 import MapList from '../../assets/data/maplist';
+import { DateRangePicker } from 'react-dates';
+import Payment from '../../payment/Payment';
+import {
+  MdKitchen,
+  MdWifi,
+  MdTv,
+  MdLocalParking,
+  MdAcUnit,
+  MdPool,
+} from 'react-icons/md';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {
+//   utensils,
+//   wifi,
+//   tv,
+//   parking,
+//   snowflake,
+// } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Star,
@@ -30,19 +50,81 @@ import {
   Icons,
   Div,
 } from './Room.styles.js';
+import { connect } from 'react-redux';
+import { useRef } from 'react';
+import { useEffect } from 'react';
+import {
+  utensils,
+  wifi,
+  tv,
+  parking,
+  snowflake,
+} from '@fortawesome/free-solid-svg-icons';
+// import { calculateTotal } from '../../redux/booking/booking.utils';
+import { getTotalValue } from '../../redux/booking/booking.action';
+import GuestDropdown from './GuestDropdown';
+import { Link } from 'react-router-dom';
+let useClickOut = handler => {
+  let domNode = useRef();
 
-const Room = ({ match, location }) => {
-  // const matchId = location.href.charAt(27);
+  // useEffect(() => {
+  //   let maybeHandler = event => {
+  //     console.log(domNode);
+  //     if (!domNode.current.contains(event.target)) {
+  //       handler();
+  //     }
+  //   };
+  //   document.addEventListener('mousedown', maybeHandler);
+  //   return () => {
+  //     document.removeEventListener('mousedown', maybeHandler);
+  //   };
+  // });
+  return domNode;
+};
+
+const Room = ({
+  calTotal,
+  match,
+  location,
+  totalGuest,
+  setStart,
+  setEnd,
+  stayDate,
+  totalprice,
+  eachHotelValues,
+}) => {
+  const [focusedInput, setFocusedInput] = useState(null);
+  useEffect(() => {
+    calTotal();
+  }, []);
+  // console.log(eachHotelValues.fee);
+  console.log(totalprice);
+  console.log(typeof eachHotelValues.fee);
+  console.log(typeof stayDate);
+  // let { fee } = eachHotelValues;
+  let [isOpen, setIsOpen] = useState(false);
+
+  let domNode = useClickOut(() => {
+    setIsOpen(false);
+  });
   const matchId = match.params.id;
-  console.log(matchId);
 
   const item = MapList.find(list => {
     return list.id == matchId;
   });
-  console.log(item);
-  console.log(item.imgUrl[0]);
+  // console.log(item.fee, stayDate);
+  // let totalPriceValue = calTotal(item.fee, stayDate);
+  // console.log(totalPriceValue);
+  // console.log(item.amenities);
+  // console.log(item.amenities[0].key);
+  // console.log(item.amenities[0].key);
+  // console.log(item.amenities[0].value);
+  // console.log(item);
+  // console.log(item.imgUrl[0]);
   let features = item.owner.feature;
   console.log(features);
+  let pricePerDay = item.fee.toLocaleString('ko-KR');
+  console.log(pricePerDay);
   return (
     <Content>
       <Title>{item.title}</Title>
@@ -55,12 +137,12 @@ const Room = ({ match, location }) => {
           <Span>{item.rating}</Span>
           <Span>{item.address}</Span>
         </Div>
-        <div>
+        <p>
           <Share />
           <Icons>공유하기</Icons>
           <Heart />
           <Icons>저장</Icons>
-        </div>
+        </p>
       </OneDesc>
       <Grid>
         <MainImg alt="img" src={item.imgUrl[0]} />
@@ -78,7 +160,7 @@ const Room = ({ match, location }) => {
           <Section>
             <ul>
               {features.map(f => {
-                return <li>{f}</li>;
+                return <li key={f.id}>{f}</li>;
               })}
             </ul>
           </Section>
@@ -86,10 +168,37 @@ const Room = ({ match, location }) => {
             <Subtitle>{item.owner.name} 님의 숙소 정보</Subtitle>
             <div>{item.describe}</div>
           </Section>
+          <Section>
+            <Subtitle>제공내역</Subtitle>
+            {/* console.log(item.i)
+            {item.lcons.map(val => {
+              return (
+                <div>
+                  <FontAwesomeIcon icon={val.icon} />
+                  <span>{val.title}</span>
+                </div>
+              );
+            })} */}
+            {item.amenities.map(i => {
+              return (
+                <div>
+                  {/* <i.key /> */}
+                  {/* <FontAwesomeIcon icon={faCoffee} /> */}
+                  {/* <FontAwesomeIcon icon={i.icon} /> */}
+                  {/* <span>{i.icon}</span> */}
+                  <li>{i.value}</li>
+                  {/* <span>{i.value}</span> */}
+                </div>
+              );
+            })}
+
+            <div>{item.amenities.key}</div>
+            <div>{item.amenities.value}</div>
+          </Section>
         </DetailBox>
         <BillBox>
           <Line>
-            <Price>₩{item.fee} </Price>/ 박
+            <Price>₩{pricePerDay} </Price>/ 박
           </Line>
           <Line>
             <StarContainer>
@@ -97,13 +206,39 @@ const Room = ({ match, location }) => {
             </StarContainer>
             <span>{item.rating}</span>
           </Line>
+          <DateRangePicker
+            // onDatesChange={setStart}
+            focusedInput={focusedInput}
+            onFocusChange={focusedInput => setFocusedInput(focusedInput)}
+            startDateId="start_date_id"
+            endDateId="end_date_id"
+            // startDate="setStart"
+            // endDate="setEnd"
+            startDatePlaceholderText={setStart}
+            endDatePlaceholderText={setEnd}
+            customArrowIcon={true}
+          />
+          {/* <Calendar start={setStart} end={setEnd} /> */}
+          <GuestDropdown />
+          {/* <div ref={domNode}>
+            <button onClick={() => setIsOpen(isOpen => !isOpen)}>
+              {' '}
+              <label>Guest </label>
+              <input value={totalGuest} />
+            </button> */}
 
-          <Button>예약하기 </Button>
+          {/* <PeopleModalContainer /> */}
+          {/* </div> */}
+          <Link to={`/paymentDetail`}>
+            <Button>예약하기 </Button>
+          </Link>
           <Notice>예약 확정 전에는 요금이 청구되지 않습니다</Notice>
           <AdditionalFee>
-            <span>₩ {item.fee} x 박</span>
+            <span>
+              ₩ {pricePerDay} x {stayDate} 박
+            </span>
           </AdditionalFee>
-          <AdditionalFee>
+          {/* <AdditionalFee>
             <span>청소비</span>
             <span>₩24,000</span>
           </AdditionalFee>
@@ -111,14 +246,40 @@ const Room = ({ match, location }) => {
             <span>서비스수수료</span>
             <span>₩9,300</span>
           </AdditionalFee>
-          <AdditionalFee>
+          <AdditionalFee id="paddingB">
             <span>숙박세와수수료</span>
             <span>₩930</span>
+          </AdditionalFee> */}
+          <AdditionalFee className="totalStyle">
+            <span>합계</span>
+            <span>₩ {totalprice.toLocaleString('ko-KR')}</span>
           </AdditionalFee>
         </BillBox>
       </Descprtion>
     </Content>
   );
 };
+const mapStateToProps = ({
+  booking: {
+    guest,
+    adult,
+    infant,
+    startDay,
+    endDay,
+    stayDate,
+    totalprice,
+    eachHotelValues,
+  },
+}) => ({
+  totalGuest: guest + adult + infant,
+  setStart: startDay,
+  setEnd: endDay,
+  stayDate: stayDate,
+  totalprice,
+  eachHotelValues,
+});
 
-export default Room;
+const mapDispatchToProps = dispatch => ({
+  calTotal: () => dispatch(getTotalValue()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Room);

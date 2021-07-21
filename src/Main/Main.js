@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { tooglePeopleModalExit } from '../redux/booking/booking.action';
 import { toggleUserDropDown } from '../redux/header/header.action';
 import BannerBox from './Components/banner/banner-box.components';
 import CityList from './Components/cityList/CityList.components';
@@ -8,10 +10,25 @@ import LiveAnyWhere from './Components/liveAnywhere/live-anyWhere.components.js'
 import TopBanner from './Components/topbanner/top-banner.components';
 
 import './Main.scss';
+const Main = ({ UserInfoHidden, tooglePeopleModalExit }) => {
+  // const [exit, useExit] = useState(false);
+  // const clickOustise = () => {
+  //   useExit(true);
+  // };
+  // exit = UserInfoHidden;
 
-const Main = ({ toggleUserDropDown }) => {
+  // function clickOustise(UserInfoHidden) {
+  //   useExit(true);
+  //   UserInfoHidden = false;
+  //   console.log('false');
+  // }
   return (
-    <div className="main-container">
+    <div
+      className="main-container"
+      // onClick={() => {
+      //   clickOustise();
+      // }}
+    >
       <TopBanner />
       <CityList />
       <LiveAnyWhere />
@@ -30,7 +47,11 @@ const Main = ({ toggleUserDropDown }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  toggleUserDropDown: () => dispatch(toggleUserDropDown()),
-});
-export default connect(null, mapDispatchToProps)(Main);
+// const mapStateToProps = ({ header: { UserInfoHidden } }) => ({
+//   UserInfoHidden,
+// });
+// const mapDispatchToProps = dispatch => ({
+//   // toggleUserDropDown: () => dispatch(toggleUserDropDown()),
+//   tooglePeopleModalExit: () => dispatch(tooglePeopleModalExit()),
+// });
+export default Main;

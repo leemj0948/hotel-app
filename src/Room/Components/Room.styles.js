@@ -8,13 +8,13 @@ export const Title = styled.h1`
 export const Span = styled.span`
   padding: 5px;
 `;
-export const OneDesc = styled.p`
+export const OneDesc = styled.div`
   display: flex;
   justify-content: space-between;
   line-height: 2rem;
   color: gray;
 `;
-export const StarContainer = styled.div`
+export const StarContainer = styled.p`
   padding-top: 5px;
 `;
 export const Grid = styled.div`
@@ -33,6 +33,7 @@ export const MainImg = styled.img`
   border-radius: 21px 0px 1px 20px;
   height: 512px;
 `;
+
 export const Img1 = styled.img`
   grid-area: img1;
   width: 230px;
@@ -75,6 +76,15 @@ export const BillBox = styled.div`
   flex-direction: column;
   border: 1px solid #dddddd;
   border-radius: 20px;
+  #paddingB {
+    padding-bottom: 1.5rem;
+  }
+  .totalStyle {
+    border-top: 1px solid gray;
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 `;
 
 export const Content = styled.div`
@@ -100,7 +110,7 @@ export const Button = styled.button`
   color: white;
   border-radius: 6px;
   width: 100%;
-  height: 15%;
+  height: 2.5rem;
 `;
 export const Line = styled.p`
   display: flex;
