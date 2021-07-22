@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 export const UserDropDwonBox = styled.div`
   position: absolute;
   width: 230px;
@@ -14,13 +14,17 @@ export const UserDropDwonBox = styled.div`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 `;
-
+export const UserItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: gray;
+`;
 export const Line = styled.hr`
   width: 120%;
   position: relative;
   left: -19px;
 `;
-export const Text = styled.p`
+const Styles = css`
   padding: 5px 5px 5px 12px;
   height: 35px;
   line-height: 30px;
@@ -33,4 +37,11 @@ export const Text = styled.p`
     background: gainsboro;
     width: 120%;
   }
+`;
+
+export const Linked = styled(Link)`
+  ${Styles}
+`;
+export const Text = styled.p`
+  ${Styles}
 `;

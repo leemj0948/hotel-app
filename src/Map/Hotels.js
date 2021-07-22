@@ -4,13 +4,16 @@ import Fliter from './Component/Filter';
 import calendar from '../assets/calendar.svg';
 import HotelInfo from './Component/HotelInfo';
 import MapList from '../assets/data/maplist';
-
-const Hotels = props => {
-  console.log(MapList);
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getEachHotelData } from '../redux/booking/booking.action';
+const Hotels = ({ totalGuest, startDay, endDay, sentHotelData }) => {
+  // console.log(MapList);
+  // console.log(totalGuest, startDay, endDay);
   return (
     <Backgorund>
       <OptionInfo>
-        300개 이상의 숙소 · 6월 1일 - 6월 10일 · 게스트 2명
+        300개 이상의 숙소 · {startDay} - {endDay} · 게스트 {totalGuest}명
       </OptionInfo>
       <Title>지도에서 선택한 지역의 숙소</Title>
       <Filters>
@@ -23,10 +26,13 @@ const Hotels = props => {
           26%가 이미 예약되었습니다.
         </Info>
       </SmallInfo>
-      <InfoSection>
+      <InfoSection to="/room">
         {MapList.map(elm => {
-          console.log(elm);
-          return <HotelInfo data={elm} />;
+          return (
+            <Link to={`/room/${elm.id}`} onClick={() => sentHotelData(elm)}>
+              <HotelInfo data={elm} />;
+            </Link>
+          );
         })}
       </InfoSection>
     </Backgorund>
@@ -48,7 +54,7 @@ const Backgorund = styled.div`
 `;
 const OptionInfo = styled.h1`
   color: inherit;
-  font-size: 0.9vw;
+  font-size: 1.2vw;
   font-weight: 400;
   line-height: inherit;
   margin: 0px;
@@ -91,5 +97,15 @@ const Calendar = styled.img`
 const InfoSection = styled.div`
   width: 100%;
 `;
+const mapStateToProps = ({
+  booking: { startDay, endDay, guest, adult, infant },
+}) => ({
+  totalGuest: guest + adult + infant,
+  startDay,
+  endDay,
+});
 
-export default Hotels;
+const mapDispatchToProps = dispatch => ({
+  sentHotelData: elm => dispatch(getEachHotelData(elm)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Hotels);

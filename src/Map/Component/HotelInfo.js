@@ -8,11 +8,12 @@ const HotelInfo = ({ data }) => {
   const clickHeart = () => {
     setIsHeart(!isHeart);
   };
-  const { address, fee, imgUrl, option1, option2, title } = data;
+  const { id, address, fee, imgUrl, option1, option2, title } = data;
+  console.log(data);
   return (
     <>
       <Bar />
-      <Form>
+      <Form id={id}>
         <ImgSection>
           <Imgslider img={imgUrl} />
         </ImgSection>

@@ -1,13 +1,14 @@
 import React from 'react';
 import Calender from '../Calander.components/Calander';
+import { CalenderBox } from './CalendarStyle';
 import './Calendar.styles.scss';
 
 const CalendarContainer = () => {
   return (
-    <div className="CalenderBox">
+    <CalenderBox>
       <Calender />
       <Calender />
-    </div>
+    </CalenderBox>
   );
 };
 

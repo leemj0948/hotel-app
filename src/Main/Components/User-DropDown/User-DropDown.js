@@ -1,16 +1,22 @@
 import React from 'react';
-import { UserDropDwonBox, Text, Line } from './User-DropDown.style';
+import {
+  UserDropDwonBox,
+  Text,
+  UserItem,
+  Linked,
+  Line,
+} from './User-DropDown.style';
 const UserDropDown = () => {
   return (
     <UserDropDwonBox>
-      <div className="user-item">
-        <Text>로그인</Text>
-        <Text>회원가입</Text>
+      <UserItem>
+        <Linked to="/login">로그인</Linked>
+        <Linked to="/login">회원가입</Linked>
         <Line />
         <Text>숙소호스트되기</Text>
         <Text>체험호스팅하기</Text>
         <Text>도움말</Text>
-      </div>
+      </UserItem>
     </UserDropDwonBox>
   );
 };
