@@ -24,7 +24,7 @@ const PaymentSuccess = ({
             <PdateWrap>
               <Pbox>
                 <p className="bold">Check In </p>
-                <p>{startDay}</p> -
+                <p>{startDay}</p>
               </Pbox>
               <Pbox>
                 <p className="bold">Check Out </p>
