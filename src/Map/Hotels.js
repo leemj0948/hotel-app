@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Fliter from './Component/Filter';
 import calendar from '../assets/calendar.svg';
