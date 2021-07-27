@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { tooglePeopleModalHidden } from '../../../redux/booking/booking.action';
 import PeopleModalContainer from '../people-modal-container/PeopleModalContainer';
-// import { throttle } from 'lodash';
 import _ from 'lodash';
 import UserIcon from '../user-icon/user-icon';
 import 'react-calendar/dist/Calendar.css';
@@ -92,7 +91,7 @@ const Header = ({
                 <Subtitle>위치</Subtitle>
                 <Search
                   where="어디로가세요"
-                  onChange={e => {
+                  onChange={(e) => {
                     localStorage.setItem('location', e.target.value);
                   }}
                 />
@@ -209,8 +208,8 @@ const mapStateToProps = ({
   bigHeader,
   UserInfoHidden,
 });
-const mapDispatchToProps = dispatch => ({
-  headerSize: locationY => dispatch(headerSize(locationY)),
+const mapDispatchToProps = (dispatch) => ({
+  headerSize: (locationY) => dispatch(headerSize(locationY)),
   searchButtonHeaderToggle: () => dispatch(mainpage()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
