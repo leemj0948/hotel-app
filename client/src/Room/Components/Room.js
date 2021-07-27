@@ -108,7 +108,7 @@ const Room = ({
   const matchId = match.params.id;
 
   const item = MapList.find(list => {
-    return list.id === matchId;
+    return list.id == matchId;
   });
   // console.log(item.fee, stayDate);
   // let totalPriceValue = calTotal(item.fee, stayDate);
