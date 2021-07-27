@@ -14,11 +14,10 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
   const handleCardDetailsChange = ev => {
     ev.error ? setCheckoutError(ev.error.message) : setCheckoutError();
-  
   };
   const handleFormSubmit = async e => {
     e.preventDefault();
-    
+
     const billingDetails = {
       name: e.target.name.value,
       email: e.target.email.value,
@@ -33,27 +32,27 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     const cardElement = elements.getElement(CardElement);
 
     // try {
-    const { data: clientSecret } = await axios.post("http://localhost:5000/pay",
-      {amount: price}
+    const { data: clientSecret } = await axios.post(
+      'http://localhost:5000/pay',
+      { amount: price }
     );
-    
-    const confirmed = await stripe.confirmCardPayment(clientSecret,{
-      payment_method:{
+
+    const confirmed = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
         card: cardElement,
-        billing_details:billingDetails,
-      }
-    })
-    console.log(confirmed )
+        billing_details: billingDetails,
+      },
+    });
+    console.log(confirmed);
     onSuccessfulCheckout();
     if (confirmed.error) {
       setCheckoutError(confirmed.error.message);
       setProcessingTo(false);
       return;
     }
-    
   };
   return (
-    <form  onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <div>
         <CheckoutTitle>Pay with</CheckoutTitle>
         <BillingDetailsFields />
@@ -61,6 +60,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       <div>
         <CardElementContainer>
           <CardElement
+            hidePostalCode={true}
             // option={cardElementOpts}
             onChange={handleCardDetailsChange}
           />

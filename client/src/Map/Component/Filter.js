@@ -32,7 +32,7 @@ const Button = styled.div`
 const Title = styled.span`
   margin: 10px;
   color: rgb(34, 34, 34);
-  font-size: 12px;
+  font-size: 1.22rem;
   text-align: center;
 `;
 

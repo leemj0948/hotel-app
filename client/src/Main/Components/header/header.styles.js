@@ -168,14 +168,15 @@ export const Option = styled.div`
 `;
 export const Subtitle = styled.div`
   padding-right: ${props => props.padding || '0%'};
-  padding-top: 10px;
-  margin-left: 2rem;
+  margin-left: 1rem;
+  line-height: ${props => props.lineHeight || '1.2rem'};
+  font-size: 1.2rem;
 `;
 export const Search = styled.input.attrs(props => ({
   placeholder: props.where,
 }))`
   background-color: transparent;
-  margin-left: 2rem;
+  margin-left: 1rem;
 `;
 export const CalendarStyle = styled(Calender)`
   background-color: transparent;
@@ -198,6 +199,8 @@ export const SearchIcon = styled.button`
 export const MagnificationIcon = styled(IoSearch)`
   color: white;
   padding-right: 3px;
+  line-height: 1rem;
+  font-size: 1.7rem;
 `;
 export const OptionContainer = styled.div`
   cursor: pointer;
@@ -215,7 +218,7 @@ export const Hostbtn = styled.div`
   width: 50%;
   height: 50%;
   cursor: pointer;
-  padding: 0.5em 0;
+  padding: 1em 0;
 `;
 
 export const LogoItself = styled(Logo)`

@@ -9,7 +9,8 @@ export const LiveContainer = styled.div`
   top: 50vw;
 `;
 export const AnywhereSubtitle = styled.h1`
-  font-size: 30px;
+  font-size: 2rem;
+  font-weight: bold;
   margin: auto 10%;
   padding: 0px 0px 15px 10px;
 `;
@@ -35,4 +36,5 @@ export const Img = styled.img`
 
 export const Text = styled.h3`
   line-height: 2rem;
+  font-size: 1.3rem;
 `;

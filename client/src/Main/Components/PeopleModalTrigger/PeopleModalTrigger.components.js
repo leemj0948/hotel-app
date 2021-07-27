@@ -5,9 +5,9 @@ import { tooglePeopleModalHidden } from '../../../redux/booking/booking.action';
 const PeopleModalTrigger = ({ totalGuest, togglePeopleModalHidden }) => {
   return (
     <div onClick={togglePeopleModalHidden}>
-      <div>인원</div>
-      <div placeholder="게스트추가">
-        {totalGuest ? `게스트  ${totalGuest} 명` : '게스트 추가'}
+      <div>guest</div>
+      <div placeholder="guest">
+        {totalGuest ? `${totalGuest} guests   ` : 'Add guest'}
       </div>
     </div>
   );

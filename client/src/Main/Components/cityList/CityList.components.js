@@ -41,14 +41,14 @@ class CityList extends React.Component {
     // const { collections } = this.state;
     return (
       <div className="landmark-page">
-        <h1 className="subtitle">가까운 여행지 둘러보기</h1>
+        <h1 className="subtitle">Explore nearby</h1>
         <div className="thumb-Box">
           {this.state.sections.map(({ id, city, imgUrl, distance }) => (
             <div className="thumb-Wrap" key={id}>
               <img src={imgUrl} alt="thumb" className="img" />
               <div className="text-box">
                 <span className="city">{city}</span>
-                <span className="distance">차로 {distance} 분 거리</span>
+                <span className="distance"> {distance} minute drive</span>
               </div>
             </div>
           ))}

@@ -72,7 +72,7 @@ const Header = ({
               : `rgb(50 50 93 / 25%) 0px 6px 20px 0px, rgb(0 0 0 / 30%) 0px 3px 7px -3px`
           }
         >
-          <LogoContainer to="/"  onClick={searchButtonHeaderToggle}>
+          <LogoContainer to="/" onClick={searchButtonHeaderToggle}>
             <LogoItself />
             <LogoText>airbnb</LogoText>
           </LogoContainer>
@@ -81,17 +81,17 @@ const Header = ({
             {/* {showMid && */}
             {bigHeader ? (
               <ButtonContainer>
-                <MiddleButton>숙소</MiddleButton>
-                <MiddleButton>체험</MiddleButton>
-                <MiddleButton>온라인체험</MiddleButton>
+                <MiddleButton>Place to stay</MiddleButton>
+                <MiddleButton>Expereience</MiddleButton>
+                <MiddleButton>Online Expereience</MiddleButton>
               </ButtonContainer>
             ) : null}
 
             <SearchContainer sizeValue={bigHeader}>
               <SearchBox sizeValue={bigHeader}>
-                <Subtitle>위치</Subtitle>
+                <Subtitle>Location</Subtitle>
                 <Search
-                  where="어디로가세요"
+                  where="Location"
                   onChange={e => {
                     localStorage.setItem('location', e.target.value);
                   }}
@@ -101,14 +101,11 @@ const Header = ({
               <div>
                 <CheckInOut>
                   <SearchBox sizeValue={bigHeader}>
-                    <Subtitle>체크인</Subtitle>
-                    {/* <Search type="date" where="날짜입력" /> */}
+                    <Subtitle>Check in</Subtitle>
                   </SearchBox>
                   {bigHeader ? <Vline></Vline> : null}
                   <SearchBox sizeValue={bigHeader}>
-                    <Subtitle>체크아웃</Subtitle>
-                    {/* <Search type="date" where="날짜입력" /> */}
-                    {/* <Calender /> */}
+                    <Subtitle>Check out</Subtitle>
                   </SearchBox>
                 </CheckInOut>
                 {bigHeader ? <CalenderWrap /> : null}
@@ -145,13 +142,13 @@ const Header = ({
                   <Subtitle padding={'55%'}>
                     {' '}
                     {listingPage
-                      ? '검색 시작하기'
+                      ? 'Start your serach'
                       : localStorage.getItem('location')}
                   </Subtitle>
                   <SearchIcon value={hidden}>
                     <LinkBox to="/map">
                       <MagnificationIcon />
-                      {hidden ? null : <HiddenSpan>검색</HiddenSpan>}
+                      {hidden ? null : <HiddenSpan>Search</HiddenSpan>}
                     </LinkBox>
                   </SearchIcon>
                 </SmallSearchBox>
@@ -160,7 +157,7 @@ const Header = ({
           </MiddleBox>
           {/* <CalendarContainer /> */}
           <OptionContainer>
-            <Hostbtn>호스트되기</Hostbtn>
+            <Hostbtn>Become a host</Hostbtn>
             <UserIcon />
             {UserInfoHidden ? null : <UserDropDown />}
           </OptionContainer>
@@ -174,23 +171,23 @@ const Header = ({
           <MiddleBox>
             <SearchContainer>
               <SmallSearchBox animation={bigHeader}>
-                <Subtitle padding={'55%'}>
+                <Subtitle padding={'55%'} lineHeight={'2rem'}>
                   {' '}
                   {listingPage
-                    ? '검색 시작하기'
+                    ? 'Start your serach'
                     : localStorage.getItem('location')}
                 </Subtitle>
                 <SearchIcon value={hidden}>
                   <LinkBox to="/map">
                     <MagnificationIcon />
-                    {hidden ? null : <HiddenSpan>검색</HiddenSpan>}
+                    {hidden ? null : <HiddenSpan>Search</HiddenSpan>}
                   </LinkBox>
                 </SearchIcon>
               </SmallSearchBox>
             </SearchContainer>{' '}
           </MiddleBox>
           <OptionContainer>
-            <Hostbtn>호스트되기</Hostbtn>
+            <Hostbtn>Become a host</Hostbtn>
             <UserIcon />
             {UserInfoHidden ? null : <UserDropDown />}
           </OptionContainer>

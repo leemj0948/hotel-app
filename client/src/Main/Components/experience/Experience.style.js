@@ -8,8 +8,9 @@ export const ExperienceContainer = styled.div`
   top: 50vw;
 `;
 export const ExperienceSubtitle = styled.h1`
-  font-size: ${props => props.size || '30px'};
+  font-size: ${props => props.size || '2rem'};
   margin: auto 10%;
+  font-weight: bold;
   padding: 0px 0px 15px 10px;
 `;
 export const ThumbBox = styled.div`
@@ -35,12 +36,12 @@ export const Img = styled.img`
 `;
 
 export const Subtitle = styled.p`
-  font-size: 18px;
+  font-size: 1.3rem;
   font-weight: bold;
-  padding: 10px 10px;
+  padding: 0.5rem 2.2rem;
 `;
 export const Text = styled.h3`
   line-height: 1rem;
-  font-size: 13.2px;
-  padding: 10px 10px;
+  font-size: 1.1rem;
+  padding: 0.5rem 2.2rem;
 `;

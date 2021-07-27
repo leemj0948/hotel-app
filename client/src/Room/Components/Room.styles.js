@@ -76,6 +76,11 @@ export const BillBox = styled.div`
   flex-direction: column;
   border: 1px solid #dddddd;
   border-radius: 20px;
+  .oneLine {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
   #paddingB {
     padding-bottom: 1.5rem;
   }
@@ -115,6 +120,9 @@ export const Button = styled.button`
 export const Line = styled.p`
   display: flex;
   line-height: 1.5rem;
+  span {
+    line-height: 2rem;
+  }
 `;
 export const AdditionalFee = styled.p`
   display: flex;

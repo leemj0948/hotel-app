@@ -139,9 +139,9 @@ const Room = ({
         </Div>
         <p>
           <Share />
-          <Icons>공유하기</Icons>
+          <Icons>Share</Icons>
           <Heart />
-          <Icons>저장</Icons>
+          <Icons>Save</Icons>
         </p>
       </OneDesc>
       <Grid>
@@ -165,11 +165,11 @@ const Room = ({
             </ul>
           </Section>
           <Section>
-            <Subtitle>{item.owner.name} 님의 숙소 정보</Subtitle>
+            <Subtitle>All about {item.owner.name}'s Place</Subtitle>
             <div>{item.describe}</div>
           </Section>
           <Section>
-            <Subtitle>제공내역</Subtitle>
+            <Subtitle>What this place offers</Subtitle>
             {/* console.log(item.i)
             {item.lcons.map(val => {
               return (
@@ -197,15 +197,18 @@ const Room = ({
           </Section>
         </DetailBox>
         <BillBox>
-          <Line>
-            <Price>₩{pricePerDay} </Price>/ 박
-          </Line>
-          <Line>
-            <StarContainer>
-              <Star />
-            </StarContainer>
-            <span>{item.rating}</span>
-          </Line>
+          <div className="oneLine">
+            <Line>
+              <Price>₩{pricePerDay} </Price>
+              <span>/ night</span>
+            </Line>
+            <Line>
+              <StarContainer>
+                <Star />
+              </StarContainer>
+              <span>{item.rating}</span>
+            </Line>
+          </div>
           <DateRangePicker
             // onDatesChange={setStart}
             focusedInput={focusedInput}
@@ -229,13 +232,13 @@ const Room = ({
 
           {/* <PeopleModalContainer /> */}
           {/* </div> */}
-          <Link to={`/paymentDetail`}>
-            <Button>예약하기 </Button>
+          <Link to={`/paymentDetail`} style={{ padding: '1rem 0' }}>
+            <Button>Reserve </Button>
           </Link>
-          <Notice>예약 확정 전에는 요금이 청구되지 않습니다</Notice>
+          <Notice>You won't be charged yet</Notice>
           <AdditionalFee>
             <span>
-              ₩ {pricePerDay} x {stayDate} 박
+              ${pricePerDay} x {stayDate} night
             </span>
           </AdditionalFee>
           {/* <AdditionalFee>
@@ -251,7 +254,7 @@ const Room = ({
             <span>₩930</span>
           </AdditionalFee> */}
           <AdditionalFee className="totalStyle">
-            <span>합계</span>
+            <span>Total</span>
             <span>₩ {totalprice.toLocaleString('ko-KR')}</span>
           </AdditionalFee>
         </BillBox>

@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Open Sans Condensed', sans-serif;
-    
+    font-size: 1.3rem;
   }
 
   input {

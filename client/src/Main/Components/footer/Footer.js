@@ -14,14 +14,11 @@ const Footer = () => {
       <FooterWrap>
         <MainFooter>
           <Text>© 2021 Carebnb, Inc.</Text>
-          <Text>
-            개인정보 처리방침·이용약관·사이트맵·한국의 변경된 환불 정책·회사
-            세부정보
-          </Text>
+          <Text>Privacy·Terms·Sitemap</Text>
         </MainFooter>
         <CountrySetting>
-          <Text>한국어 (KR) </Text>
-          <Text>통화 ₩ KRW</Text>
+          <Text>English (US) </Text>
+          <Text>$ USD</Text>
         </CountrySetting>
         <SnSInfo>
           <FaFacebookF />

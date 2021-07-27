@@ -13,24 +13,24 @@ const Hotels = ({ totalGuest, startDay, endDay, sentHotelData }) => {
   return (
     <Backgorund>
       <OptionInfo>
-        300개 이상의 숙소 · {startDay} - {endDay} · 게스트 {totalGuest}명
+        300+ stays · {startDay} - {endDay} · {totalGuest} guest
       </OptionInfo>
-      <Title>지도에서 선택한 지역의 숙소</Title>
+      <Title>Stay in </Title>
       <Filters>
         <Fliter name={filterName} />
       </Filters>
       <SmallInfo>
         <Info>
           <Calendar src={calendar} />
-          <Bold>예약을 서두르세요.</Bold> 여행하시려는 날짜에는 서울 숙소의
-          26%가 이미 예약되었습니다.
+          <Bold>Book soon.</Bold> 28% of places in New York for your dates are
+          already booked on Airbnb.
         </Info>
       </SmallInfo>
       <InfoSection to="/room">
         {MapList.map(elm => {
           return (
             <Link to={`/room/${elm.id}`} onClick={() => sentHotelData(elm)}>
-              <HotelInfo data={elm} />;
+              <HotelInfo data={elm} />
             </Link>
           );
         })}
@@ -39,11 +39,11 @@ const Hotels = ({ totalGuest, startDay, endDay, sentHotelData }) => {
   );
 };
 const filterName = [
-  '유연한 환불 정책',
-  '숙소 유형',
-  '요금',
-  '즉시 예약',
-  '필터 추가하기',
+  'Cancellation flexibility',
+  'Type of place',
+  'Price',
+  'Instant Book',
+  'More filters',
 ];
 
 const Backgorund = styled.div`
@@ -63,7 +63,7 @@ const OptionInfo = styled.h1`
 const Title = styled.h1`
   padding: 15px 0;
   color: inherit;
-  font-size: 2vw;
+  font-size: 2.2rem;
   font-weight: bolder;
   line-height: inherit;
   margin: 0px;
@@ -82,7 +82,7 @@ const SmallInfo = styled.div`
 `;
 const Info = styled.span`
   position: relative;
-  font-size: 1em;
+  font-size: 1.22rem;
 `;
 const Bold = styled.span`
   font-weight: bold;

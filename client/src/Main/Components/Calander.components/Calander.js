@@ -3,6 +3,7 @@ import 'react-dates/initialize';
 import './react_dates_overrides.css';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
+import styled from 'styled-components';
 import { DateRangePicker } from 'react-dates';
 // import '../Calendar.container/Calendar.styles.scss';
 import moment from 'moment';
@@ -27,7 +28,7 @@ function Calender({ props, getUserDate, setStart, setEnd }) {
   };
 
   return (
-    <div>
+    <CalenderHeight>
       <DateRangePicker
         // onSubmit ={handleSubmit}
         startDate={startDate} // momentPropTypes.momentObj or null,
@@ -36,9 +37,11 @@ function Calender({ props, getUserDate, setStart, setEnd }) {
         endDateId="end_date_id" // PropTypes.string.isRequired,
         onDatesChange={handleDatesChange} // PropTypes.func.isRequired,
         customArrowIcon={true}
-        startDatePlaceholderText={setStart}
-        endDatePlaceholderTex={setEnd}
+        // startDatePlaceholderText={setStart}
+        // endDatePlaceholderTex={setEnd}
         noBorder={true}
+        startDatePlaceholderText="Add dates"
+        endDatePlaceholderText="Add dates"
         block={true}
         // navPrev="U+3008"
         // navNext=">"
@@ -46,9 +49,29 @@ function Calender({ props, getUserDate, setStart, setEnd }) {
         onFocusChange={focusedInput => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
       />
       {/* <button onClick={}>btn</button> */}
-    </div>
+    </CalenderHeight>
   );
 }
+
+const CalenderHeight = styled.div`
+  color: #484848;
+  height: 0px;
+  .DateRangePickerInput {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .DateInput {
+    background-color: transparent;
+    width: 100px;
+  }
+  input {
+    width: 110px;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+  }
+`;
 
 // const mapStateToProps = ({ booking: { startDay, endDay } }) => ({
 //   startDay,

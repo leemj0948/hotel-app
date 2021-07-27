@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
 
 export const flexSet = (justifyContent, alignItems) => css`
-  font-family: 'Open Sans Condensed', sans-serif;
-
+  font-family: 'Open Sans Condensed';
+  font-size: 1.3rem;
   display: flex;
   justify-content: ${justifyContent};
   align-items: ${alignItems};

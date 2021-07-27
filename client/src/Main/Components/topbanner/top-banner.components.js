@@ -10,8 +10,8 @@ const TopBanner = () => {
         style={{ backgroundImage: `url(${care})`, backgroundSize: 'cover' }}
       />
       <div className="content-wrap">
-        <h1>슬기로운 자연생활</h1>
-        <p>에어비앤비가 엄선한 위시리스트를 만나보세요.</p>
+        <h1>Natural Life</h1>
+        <p>Carebnb Wish List</p>
       </div>
     </div>
   );

@@ -1,11 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import Calender from './Calander';
 const CalenderWrap = () => {
   return (
-    <div>
+    <CalenderStyleWrap>
       <Calender />
-    </div>
+    </CalenderStyleWrap>
   );
 };
+
+const CalenderStyleWrap = styled.div`
+  position: relative;
+  top: -30px;
+`;
 
 export default CalenderWrap;
