@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import {
   PaymentWrap,
@@ -59,7 +61,9 @@ const PaymentDetail = ({
         <Right>
           <div className="flex-row">
             <img src={thumb} alt="" />
-            <div className="summary">
+
+            <div className='summary'>
+
               <p>{address}</p>
               <p>{title}</p>
               <p>{option1}</p>

@@ -9,7 +9,9 @@ const HotelInfo = ({ data, stayDate }) => {
   const clickHeart = () => {
     setIsHeart(!isHeart);
   };
+
   const { id, type, city, rating, fee, imgUrl, option1, option2, title } = data;
+
   const total = stayDate * fee;
   return (
     <>

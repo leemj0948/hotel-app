@@ -12,6 +12,7 @@ const FormFieldContainer = styled.div`
   }
 `;
 
+
 // const Label = styled.label`
 //   width: 20%;
 //   min-width: 70px;
@@ -21,6 +22,7 @@ const FormFieldContainer = styled.div`
 //   text-overflow: ellipsis;
 //   white-space: nowrap;
 // `;
+
 
 const Input = styled.input`
   font-size: 16px;

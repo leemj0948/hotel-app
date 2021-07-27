@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 // import Calendar from '../../Main/Components/Calander.components/Calander';
 import MapList from '../../assets/data/maplist';
 import { DateRangePicker } from 'react-dates';
+
 // import {
 //   MdKitchen,
 //   MdWifi,
@@ -49,7 +51,9 @@ import {
   Div,
 } from './Room.styles.js';
 import { connect } from 'react-redux';
+
 // import { useRef } from 'react';
+
 import { useEffect } from 'react';
 // import {
 //   utensils,
@@ -62,6 +66,7 @@ import { useEffect } from 'react';
 import { getTotalValue } from '../../redux/booking/booking.action';
 import GuestDropdown from './GuestDropdown';
 import { Link } from 'react-router-dom';
+
 // let useClickOut = handler => {
 //   let domNode = useRef();
 
@@ -80,6 +85,7 @@ import { Link } from 'react-router-dom';
 //   return domNode;
 // };
 
+
 const Room = ({
   calTotal,
   match,
@@ -94,17 +100,21 @@ const Room = ({
   const [focusedInput, setFocusedInput] = useState(null);
   useEffect(() => {
     calTotal();
+
   });
+
   // console.log(eachHotelValues.fee);
   console.log(totalprice);
   console.log(typeof eachHotelValues.fee);
   console.log(typeof stayDate);
   // let { fee } = eachHotelValues;
+
   // let [isOpen, setIsOpen] = useState(false);
 
   // let domNode = useClickOut(() => {
   //   setIsOpen(false);
   // });
+
   const matchId = match.params.id;
 
   const item = MapList.find(list => {
