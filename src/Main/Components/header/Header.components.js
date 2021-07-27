@@ -21,7 +21,6 @@ import {
   Icon,
   Vline,
   MagnificationIcon,
-  CalendarStyle,
   MiddleBox,
   LinkBox,
   Hostbtn,
