@@ -11,7 +11,9 @@ const PaymentSuccess = ({
   eachHotelValues,
 }) => {
   console.log(eachHotelValues);
-  const { city, address, rating, title, option1, fee } = eachHotelValues;
+
+  const { city, address, title, fee } = eachHotelValues;
+
   return (
     <div>
       <Container>
