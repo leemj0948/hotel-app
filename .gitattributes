@@ -5,4 +5,5 @@
  *.php eol=lf
  *.roff linguist-detectable=false
  *.shell linguist-detectable=false
+ *.html linguist-detectable=false
  CHANGELOG.md export-ignore 

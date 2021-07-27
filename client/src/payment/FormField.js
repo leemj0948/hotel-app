@@ -12,15 +12,15 @@ const FormFieldContainer = styled.div`
   }
 `;
 
-const Label = styled.label`
-  width: 20%;
-  min-width: 70px;
-  padding: 11px 0;
-  overflow: hidden;
-  font-size: 16px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`;
+// const Label = styled.label`
+//   width: 20%;
+//   min-width: 70px;
+//   padding: 11px 0;
+//   overflow: hidden;
+//   font-size: 16px;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// `;
 
 const Input = styled.input`
   font-size: 16px;

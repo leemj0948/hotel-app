@@ -1,6 +1,6 @@
 import { BOOKING_TYPE_DATA } from './booking.data';
 import { BookingActionType } from './booking.types';
-import { calculateTotal, minusAndRemoveGuests } from './booking.utils';
+import { minusAndRemoveGuests } from './booking.utils';
 // import { toalGuests } from './booking.utils';
 const INITIAL_STATE = {
   collection: BOOKING_TYPE_DATA,

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import Calender from '../../Main/Components/Calander.components/Calander';
 // import Calendar from '../../Main/Components/Calander.components/Calander';
 import MapList from '../../assets/data/maplist';
 import { DateRangePicker } from 'react-dates';
-import Payment from '../../payment/Payment';
 // import {
 //   MdKitchen,
 //   MdWifi,
@@ -51,7 +49,7 @@ import {
   Div,
 } from './Room.styles.js';
 import { connect } from 'react-redux';
-import { useRef } from 'react';
+// import { useRef } from 'react';
 import { useEffect } from 'react';
 // import {
 //   utensils,
@@ -64,23 +62,23 @@ import { useEffect } from 'react';
 import { getTotalValue } from '../../redux/booking/booking.action';
 import GuestDropdown from './GuestDropdown';
 import { Link } from 'react-router-dom';
-let useClickOut = handler => {
-  let domNode = useRef();
+// let useClickOut = handler => {
+//   let domNode = useRef();
 
-  // useEffect(() => {
-  //   let maybeHandler = event => {
-  //     console.log(domNode);
-  //     if (!domNode.current.contains(event.target)) {
-  //       handler();
-  //     }
-  //   };
-  //   document.addEventListener('mousedown', maybeHandler);
-  //   return () => {
-  //     document.removeEventListener('mousedown', maybeHandler);
-  //   };
-  // });
-  return domNode;
-};
+//   // useEffect(() => {
+//   //   let maybeHandler = event => {
+//   //     console.log(domNode);
+//   //     if (!domNode.current.contains(event.target)) {
+//   //       handler();
+//   //     }
+//   //   };
+//   //   document.addEventListener('mousedown', maybeHandler);
+//   //   return () => {
+//   //     document.removeEventListener('mousedown', maybeHandler);
+//   //   };
+//   // });
+//   return domNode;
+// };
 
 const Room = ({
   calTotal,
@@ -96,21 +94,21 @@ const Room = ({
   const [focusedInput, setFocusedInput] = useState(null);
   useEffect(() => {
     calTotal();
-  }, []);
+  });
   // console.log(eachHotelValues.fee);
   console.log(totalprice);
   console.log(typeof eachHotelValues.fee);
   console.log(typeof stayDate);
   // let { fee } = eachHotelValues;
-  let [isOpen, setIsOpen] = useState(false);
+  // let [isOpen, setIsOpen] = useState(false);
 
-  let domNode = useClickOut(() => {
-    setIsOpen(false);
-  });
+  // let domNode = useClickOut(() => {
+  //   setIsOpen(false);
+  // });
   const matchId = match.params.id;
 
   const item = MapList.find(list => {
-    return list.id == matchId;
+    return list.id === matchId;
   });
   // console.log(item.fee, stayDate);
   // let totalPriceValue = calTotal(item.fee, stayDate);

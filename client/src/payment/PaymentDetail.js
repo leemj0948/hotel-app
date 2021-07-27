@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Payment from './Payment';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import {
   PaymentWrap,
@@ -8,7 +7,6 @@ import {
   Right,
   PamentBody,
   PamentHeader,
-  Notice,
 } from './PaymentDetail.style';
 import CheckoutForm from './CheckoutForm';
 import CheckoutFormWrap from './CheckoutFormWrap';
@@ -61,7 +59,7 @@ const PaymentDetail = ({
         <Right>
           <div className="flex-row">
             <img src={thumb} alt="" />
-            <div className='summary'>
+            <div className="summary">
               <p>{address}</p>
               <p>{title}</p>
               <p>{option1}</p>
