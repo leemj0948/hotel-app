@@ -3,4 +3,6 @@
  *.scss linguist-vendored eol=lf
  *.js linguist-vendored eol=lf
  *.php eol=lf
+ *.roff linguist-detectable=false
+ *.shell linguist-detectable=false
  CHANGELOG.md export-ignore 
